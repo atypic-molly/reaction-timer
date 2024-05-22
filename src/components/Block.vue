@@ -1,10 +1,15 @@
 <template>
-  <div class="block">click me</div>
+  <div class="block">
+    click me
+   </div>
 </template>
 
 <script>
 export default {
-    props: ['delay']
+    props: ['delay'],
+    mounted() {
+        console.log('component mounted')
+    }
 }
 </script>
 
