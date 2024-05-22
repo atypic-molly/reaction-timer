@@ -1,13 +1,15 @@
 <template>
   <h1>Ninja Reaction Timer</h1>
   <button @click="start">play</button>
+  <Block />
 </template>
 
 <!--data is an object that returns functions-->
 <script>
+import Block from './components/Block.vue'
 export default {
   name: 'App',
-  components: { },
+  components: { Block },
   
   data() {
     return {
