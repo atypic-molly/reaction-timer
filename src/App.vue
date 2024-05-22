@@ -1,7 +1,8 @@
 <template>
   <h1>Ninja Reaction Timer</h1>
   <button @click="start" :disabled="isPlaying">play</button>
-  <Block v-if="isPlaying" :delay="delay" />
+  <Block v-if="isPlaying" :delay="delay" @end="endGame" />
+  <p>Reaction time: {{ score }} ms</p>
 </template>
 <!--why is :disabled="is Playing" not ===true??-->
 
@@ -14,12 +15,17 @@ export default {
   data() {
     return {
       isPlaying: false,
-      delay: null
+      delay: null,
+      score: null
     }
   },
   methods: {
     start() {
       this.delay = 2000 + Math.random() * 5000
+      this.isPlaying = true
+    },
+    endGame (reactionTime) {
+      this.score = reactionTime
       this.isPlaying = true
     }
   }
