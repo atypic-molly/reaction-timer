@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import Block
 export default {
     props: ['delay']
 }
