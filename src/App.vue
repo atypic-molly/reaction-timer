@@ -1,8 +1,9 @@
 <template>
   <h1>Ninja Reaction Timer</h1>
-  <button @click="start">play</button>
-  <Block v-if="isPLaying" :delay="delay" />
+  <button @click="start" :disabled="isPlaying">play</button>
+  <Block v-if="isPlaying" :delay="delay" />
 </template>
+<!--why is :disabled="is Playing" not ===true??-->
 
 <!--data is an object that returns functions-->
 <script>
@@ -12,14 +13,14 @@ export default {
   components: { Block },
   data() {
     return {
-      isPLaying: false,
+      isPlaying: false,
       delay: null
     }
   },
   methods: {
     start() {
       this.delay = 2000 + Math.random() * 5000
-      this.isPLaying = true
+      this.isPlaying = true
     }
   }
 }
